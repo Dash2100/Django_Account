@@ -10,5 +10,6 @@ urlpatterns = [
     path('index/', index),
     path('login/', login),
     path('logout/', logout),
-    path('register/', register)
+    path('register/', register),
+    path('postlogin/', postlogin),
 ]

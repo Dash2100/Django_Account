@@ -16,7 +16,12 @@ def index(request):
 def login(request):
     #已登入導向至index
     if request.user.is_authenticated:
-        return render(request, 'index.html', locals())
+        return redirect('/index/')
+    return render(request, 'login.html', locals())
+
+def postlogin(request):
+    if request.user.is_authenticated:
+        return redirect('/index/')
     #接收POST並驗證
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
@@ -24,9 +29,10 @@ def login(request):
     #確認使用者帳號存在,且已啟用
     if user is not None and user.is_active:
         auth.login(request, user)
+        print(user)
         return redirect('/index/')
     else:
-        return render(request, 'login.html', locals())
+        return render(request, 'loginpost.html', locals())
 
 def logout(request):
     auth.logout(request)

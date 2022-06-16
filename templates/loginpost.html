@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href={% static '/sweetalert2.min.css' %}>
+    <script src="{% static '/sweetalert2.min.js' %}"></script>
+    <title>登入中</title>
+    <style>
+        body {
+            background-image: linear-gradient(1000deg, #1b2845 0%, #274060 74%);
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: "錯誤",
+            text: "你輸入的帳號或密碼錯誤",
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            showCancelButton: false
+            }).then(function(result) {
+                if (result.value) {
+                window.location.href = "/login/";
+                }
+            });
+    </script>
+</body>
+</html>

@@ -1,14 +1,60 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-    <head>
-        <meta charset="UTF-8">
-        <title>註冊</title>
-    </head>
-    <body>
-        <h1>註冊新帳號</h1>
-        <form action="" method="post">{% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="註冊">
-        </form>
-    </body>
+
+<head>
+    {% load static %}
+    {% include 'base.html' %}
+    <title>註冊頁面</title>
+    <!-- Bootstrap -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href={% static '/Reg_style.css' %}>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+                <div class="col-lg-12 login-title">註冊</div>
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <!-- 表單 -->
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {% for field, error in form.errors.items %}
+                                <div class="alert alert-danger my-3 p-1" role="alert">
+                                    {{ error|striptags }}<br>
+                                </div>
+                            {% endfor %}
+                            <div class="register">
+                                <div class="form-group">
+                                    <label class="form-control-label">帳號</label>
+                                    {{form.username}}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">密碼</label>
+                                    {{form.password1}}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">密碼確認</label>
+                                    {{form.password2}}
+                                </div>
+                                <div>
+                                    <div class="login-text">
+                                        <a>已有帳號? <a href="/login">登入</a>
+                                    </div>
+                                    <div class="login-button">
+                                        <button type="submit" class="btn btn-outline-primary">註冊</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- 表單 -->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-2"></div>
+            </div>
+        </div>
+</body>
 </html>

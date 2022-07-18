@@ -7,7 +7,7 @@
     {% load static %}
     <link rel="stylesheet" href={% static '/sweetalert2.min.css' %}>
     <script src="{% static '/sweetalert2.min.js' %}"></script>
-    <title>登入中</title>
+    <title>訊息</title>
     <style>
         body {
             background-image: linear-gradient(1000deg, #1b2845 0%, #274060 74%);
@@ -18,15 +18,15 @@
 <body>
     <script>
         Swal.fire({
-            icon: 'error',
-            title: "錯誤",
-            text: "你輸入的帳號或密碼錯誤",
+            icon: '{{ type }}',
+            title: "{{ title }}",
+            text: "{{ text }}",
             allowEscapeKey: false,
             allowOutsideClick: false,
             showCancelButton: false
             }).then(function(result) {
                 if (result.value) {
-                window.location.href = "/login/";
+                window.location.href = "{{ href }}";
                 }
             });
     </script>

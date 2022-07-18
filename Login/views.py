@@ -1,9 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.http import HttpResponseRedirect as redirect
 from django.contrib import auth
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
 
 def index(request):
     return render(request, 'index.html', locals())
@@ -24,7 +21,7 @@ def login(request):
             print(user,"Logged in")
             return redirect('/')
         else:
-            return render(request, 'loginError.html', locals())
+            return render(request, 'alert.html', {'type': 'error','title':'錯誤','text':'帳號或密碼輸入錯誤','href':'/login/'})
     else:
         if request.user.is_authenticated:
             return redirect('/')

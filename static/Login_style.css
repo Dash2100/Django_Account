@@ -102,21 +102,15 @@ label {
 }
 
 .login-button {
+    width: 100%;
     padding-right: 0px;
     text-align: right;
     margin-bottom: 25px;
 }
 
 .login-text {
-    text-align: left;
+    /* width: 100%;
+    text-align: left; */
     padding-left: 0px;
     color: #A2A4A4;
-}
-
-.loginbttm {
-    padding: 0px;
-}
-
-.reg{
-    color: rgb(255, 255, 255);
 }

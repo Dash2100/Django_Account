@@ -2,9 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect as redirect
 from django.contrib import auth
 
-def index(request):
-    return render(request, 'index.html', locals())
-
 def login(request):
     #偵測是否為POST到此頁面
     if request.method == 'POST':

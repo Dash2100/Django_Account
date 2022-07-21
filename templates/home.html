@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}首頁{% endblock %}
+
+{% block home %}
+  <h1><b>歡迎來到首頁</b></h1>
+  {% if request.user.is_authenticated %}
+      <h2 class="time">{{request.user}} 您好,你已經登入</h2>
+  {% else %}
+      <h2 class="time">您好,請登入使用系統!</h2>
+  {% endif %}
+  <image src="https://pgw.udn.com.tw/gw/photo.php?u=https://uc.udn.com.tw/photo/2021/12/31/0/14986608.png&s=Y&x=2&y=96&sw=790&sh=444&exp=3600"></image><br>
+  <h2 class="rat"><b>勞贖</b></h2>
+{% endblock %}

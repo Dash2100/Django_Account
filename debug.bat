@@ -1,2 +1,2 @@
-echo 127.0.0.1:8964
-python ./manage.py runserver 0.0.0.0:8964
+echo http://127.0.0.1:8964
+python ./manage.py runserver 0.0.0.0:8964 --insecure

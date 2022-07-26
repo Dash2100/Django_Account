@@ -53,7 +53,7 @@ input[type=password] {
 }
 
 .form-group {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     outline: 0px;
 }
 
@@ -113,4 +113,19 @@ label {
     text-align: left; */
     padding-left: 0px;
     color: #A2A4A4;
+}
+
+.rememberme{
+    color: #cecece;
+    font-size: 17px;
+}
+
+.login-form{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.remembermeBTN{
+    width: 17px;
+    height: 17px;
 }

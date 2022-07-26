@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect as redirect
+from django.http import JsonResponse,HttpResponse,HttpResponseNotFound
 from django.contrib import auth
 
 def login(request):
@@ -15,7 +16,12 @@ def login(request):
         #確認使用者帳號存在,且已啟用
         if user is not None and user.is_active:
             auth.login(request, user)
+            remember_me = request.POST.get('rememberme')
+            if remember_me != 'on':
+                request.session.set_expiry(0)
             print(user,"Logged in")
+            if 'next' in request.GET:
+                return redirect(request.GET['next'])
             return redirect('/')
         else:
             return render(request, 'alert.html', {'type': 'error','title':'錯誤','text':'帳號或密碼輸入錯誤','href':'/login/'})

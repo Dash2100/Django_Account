@@ -2,9 +2,11 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import auth
 from .forms import ChangePasswordForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='/login/')
 def change_password(request):
     if request.method == 'POST':
         form = ChangePasswordForm(request.user, request.POST)

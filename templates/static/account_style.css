@@ -129,3 +129,7 @@ label {
     width: 17px;
     height: 17px;
 }
+
+.loginBTN{
+    border-radius: 7px;
+}

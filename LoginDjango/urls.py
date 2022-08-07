@@ -15,9 +15,8 @@ def index(request):
 def second(request):
     return render(request, 'second.html', {'IsSecond': "active"})
 
-# @login_required(login_url='/login/')
-# def password(request):
-#      return render(request, 'password.html')
+def profile(request):
+    return render(request, 'profile.html')
 
 urlpatterns = [
     path('', index),
@@ -27,4 +26,5 @@ urlpatterns = [
     path('logout/', logout),
     path('register/', register),
     path('password/', change_password),
+    path('profile/', profile),
 ]

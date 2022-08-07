@@ -14,23 +14,23 @@
         crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href={% static '/style.css' %}>
+    <link rel="stylesheet" href={% static 'profile.css' %}>
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">Django Account</a>
+          <a class="navbar-brand" href="../">Django Account</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link {{ IsHome }}" href="/" id="page1Text">首頁</a>
+                <a class="nav-link" aria-current="page" href="../">首頁</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ IsSecond }}" href="/second/" id="page2Text">第二頁</a>
+                <a class="nav-link" href="../second/">第二頁</a>
               </li>
             </ul>
             <div class="account">
@@ -50,10 +50,36 @@
             </div>
         </div>
       </nav>
-      
-      <div class="page">
-        {% block home %}
-        {% endblock %}
-      </div>
+
+      <div class="wrapper gray mt-sm-5">
+        <h4 class="pb-4 border-bottom title">帳號設定</h4>
+        <div class="d-flex align-items-start py-3 border-bottom">
+            <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img" alt="">
+            <div class="pl-sm-4 pl-2 white" id="img-section">
+                <b>帳號頭貼</b>
+                <p style="color:rgb(162, 171, 179)">png檔案,大小限制1MB以下</p>
+                <input type="file" class="upload">
+          </div>
+        </div>
+        <div class="py-2">
+            <div>
+                <label for="lastname">帳號名稱</label>
+                <input type="text" class="form-control textbox" value="tony2100" disabled>
+            </div>
+            <div>
+                <label for="lastname">姓名</label>
+                <input type="text" class="form-control textbox">
+            </div>
+            <div>
+                <label for="lastname">電子郵件</label>
+                <input type="text" class="form-control textbox">
+            </div>
+            <div class="right buttons">
+                <a class="btn btn-danger" style="margin-right: 5px;" href='/password/'>變更密碼</a>
+                <button class="btn btn-primary">儲存變更</button>
+            </div>
+        </div>
+    </div>
 </body>
+<div>
 </html>
